@@ -1,5 +1,6 @@
 # ssr_finder
 
+
 Find simple repeat sequences in the assembly genome and design proper primers for simple repeat sequences in 10 steps
 ssr_finder
 
@@ -14,7 +15,9 @@ and the flank length of ssr yourself or you can use default (motif two >= six ti
 
 3filter_primer: filter the primers which have ssr(2-6 basepair,repeats>=4)
 
-4： formatdb the genome file which need analyse and blast the primers to the genome,blast the primer sequence up to the target file, prevent the primer file multi-mapping to the target region. #####sometimes it need to use parameter -b 10000 -v 10000###########
+4： formatdb:the genome file which need analyse and blast the primers to the genome,
+blast the primer sequence up to the target file, prevent the primer file multi-mapping to the target region.
+#####sometimes it need to use parameter -b 10000 -v 10000###########
 
 5blast_parse: get the primer which 5' of the primer have 3 mismatch and 3' of primer have 1 mismatch
 
@@ -83,3 +86,5 @@ perl $path/1ssr_finder --ssr2 6 --ssr3 4 --ssr4 4 --ssr5 4 --ssr6 4 $outdir/$2.p
 perl $path/9filter_ssr $outdir/$2.product_ssr $outdir/$2.inter_primer.tab $outdir/$2.only_primer.tab
 
 perl $path/10get_fitprimer $outdir/$2.only_primer.tab $outdir/$2.product_ssr $outdir/$2.rescreen $outdir/$2.final_primer
+
+Warning: Maybe you need to install perl package "ByteLoader"(http://search.cpan.org/~rurban/B-C-1.55/ByteLoader/ByteLoader.pm) to run this pipeline, this pipeline was tested under perl5.10.
